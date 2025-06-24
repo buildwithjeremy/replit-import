@@ -1,0 +1,27 @@
+
+[
+  {
+    "id": "trainer-001",
+    "name": "Grace Lee",
+    "email": "grace.lee@teamtenacious.com",
+    "role": "trainer",
+    "assignedRepIds": ["rep-001", "rep-002"],
+    "joinDate": "2023-06-01T10:00:00Z"
+  },
+  {
+    "id": "trainer-002", 
+    "name": "Mike Chen",
+    "email": "mike.chen@teamtenacious.com",
+    "role": "trainer",
+    "assignedRepIds": ["rep-003", "rep-004"],
+    "joinDate": "2023-08-15T10:00:00Z"
+  },
+  {
+    "id": "admin-001",
+    "name": "Sarah Admin",
+    "email": "sarah.admin@teamtenacious.com",
+    "role": "admin",
+    "assignedRepIds": [],
+    "joinDate": "2023-01-01T10:00:00Z"
+  }
+]
