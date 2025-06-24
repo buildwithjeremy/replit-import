@@ -4,18 +4,21 @@
     "id": "trainer1",
     "name": "John Trainer",
     "email": "john.trainer@company.com",
-    "assignedRepIds": ["rep1", "rep2"]
+    "assignedRepIds": ["rep1", "rep2"],
+    "createdAt": "2024-01-01T00:00:00.000Z"
   },
   {
     "id": "trainer2", 
     "name": "Lisa Manager",
     "email": "lisa.manager@company.com",
-    "assignedRepIds": ["rep3", "rep4"]
+    "assignedRepIds": ["rep3", "rep4"],
+    "createdAt": "2024-01-01T00:00:00.000Z"
   },
   {
     "id": "admin1",
     "name": "Admin User",
     "email": "admin@company.com", 
-    "assignedRepIds": []
+    "assignedRepIds": [],
+    "createdAt": "2024-01-01T00:00:00.000Z"
   }
 ]

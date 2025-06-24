@@ -1,3 +1,4 @@
+
 import { Rep } from '@shared/schema';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,7 +17,7 @@ export default function RepCard({ rep, trainerName, showTrainer = false, onClick
   const progress = calculateProgress(rep.stage);
   const stageTitle = getStageTitle(rep.stage);
   const stageColor = getStageColor(rep.stage);
-  const lastUpdated = formatDate(rep.updatedAt);
+  const lastUpdated = formatDate(rep.updatedAt || new Date());
 
   const getStageColorClasses = (color: string) => {
     switch (color) {

@@ -8,7 +8,9 @@
     "fieldTrainerId": "trainer1",
     "stage": 3,
     "promotionDate": "2024-01-15T00:00:00.000Z",
-    "milestones": []
+    "milestones": [],
+    "createdAt": "2024-01-15T00:00:00.000Z",
+    "updatedAt": "2024-01-15T00:00:00.000Z"
   },
   {
     "id": "rep2", 
@@ -18,7 +20,9 @@
     "fieldTrainerId": "trainer1",
     "stage": 7,
     "promotionDate": "2024-02-01T00:00:00.000Z",
-    "milestones": []
+    "milestones": [],
+    "createdAt": "2024-02-01T00:00:00.000Z",
+    "updatedAt": "2024-02-01T00:00:00.000Z"
   },
   {
     "id": "rep3",
@@ -28,7 +32,9 @@
     "fieldTrainerId": "trainer2",
     "stage": 1,
     "promotionDate": "2024-03-10T00:00:00.000Z",
-    "milestones": []
+    "milestones": [],
+    "createdAt": "2024-03-10T00:00:00.000Z",
+    "updatedAt": "2024-03-10T00:00:00.000Z"
   },
   {
     "id": "rep4",
@@ -38,6 +44,8 @@
     "fieldTrainerId": "trainer2",
     "stage": 12,
     "promotionDate": "2023-11-20T00:00:00.000Z",
-    "milestones": []
+    "milestones": [],
+    "createdAt": "2023-11-20T00:00:00.000Z",
+    "updatedAt": "2023-11-20T00:00:00.000Z"
   }
 ]

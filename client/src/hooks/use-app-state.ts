@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 import { AppUser, Rep, FieldTrainer, AuditLog } from '@shared/schema';
 import { generateId, formatDate } from '@/lib/utils';
@@ -32,12 +33,13 @@ const initialState: AppState = {
   userRole: null,
   reps: dummyReps.map(rep => ({
     ...rep,
-    createdAt: new Date(rep.createdAt),
-    updatedAt: new Date(rep.updatedAt)
+    promotionDate: rep.promotionDate ? new Date(rep.promotionDate) : null,
+    createdAt: rep.createdAt ? new Date(rep.createdAt) : null,
+    updatedAt: rep.updatedAt ? new Date(rep.updatedAt) : null
   })) as Rep[],
   trainers: dummyTrainers.map(trainer => ({
     ...trainer,
-    createdAt: new Date(trainer.createdAt)
+    createdAt: trainer.createdAt ? new Date(trainer.createdAt) : null
   })) as FieldTrainer[],
   auditLogs: [],
   selectedRep: null,
