@@ -1,244 +1,282 @@
+
 [
   {
-    "stepId": 1,
+    "id": 1,
     "title": "Welcome & Onboarding",
-    "description": "Initial setup and orientation",
+    "description": "Complete initial setup and orientation",
     "subTasks": [
       {
         "taskId": "1-1",
-        "description": "Complete initial paperwork"
+        "description": "Complete welcome orientation",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
-        "taskId": "1-2",
-        "description": "Attend orientation session"
+        "taskId": "1-2", 
+        "description": "Review company policies",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "1-3",
-        "description": "Review company handbook"
+        "description": "Set up workspace and tools",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 2,
+    "id": 2,
     "title": "Basic Training",
-    "description": "Fundamental sales and company training",
+    "description": "Foundation skills and knowledge",
     "subTasks": [
       {
         "taskId": "2-1",
-        "description": "Complete sales basics course"
+        "description": "Complete safety training",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "2-2",
-        "description": "Pass assessment test"
+        "description": "Learn basic procedures",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 3,
-    "title": "Product Knowledge",
-    "description": "Learn about products and services",
+    "id": 3,
+    "title": "Shadow Training",
+    "description": "Observe experienced trainer",
     "subTasks": [
       {
         "taskId": "3-1",
-        "description": "Study product catalog"
+        "description": "Shadow 5 field visits",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "3-2",
-        "description": "Complete product quiz"
+        "description": "Document observations",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 4,
-    "title": "Field Training Basics",
-    "description": "Introduction to field work",
+    "id": 4,
+    "title": "First Solo Visits",
+    "description": "Begin independent field work",
     "subTasks": [
       {
         "taskId": "4-1",
-        "description": "Shadow experienced trainer"
+        "description": "Complete 3 solo visits",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "4-2",
-        "description": "Complete 5 practice presentations"
-      },
-      {
-        "taskId": "4-3",
-        "description": "Learn territory basics"
-      },
-      {
-        "taskId": "4-4",
-        "description": "Pass field training assessment"
+        "description": "Submit visit reports",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 5,
-    "title": "Advanced Training",
-    "description": "Advanced sales techniques and strategies",
+    "id": 5,
+    "title": "Client Relations",
+    "description": "Build client relationship skills",
     "subTasks": [
       {
         "taskId": "5-1",
-        "description": "Advanced sales techniques workshop"
+        "description": "Complete communication training",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "5-2",
-        "description": "Customer objection handling"
-      },
-      {
-        "taskId": "5-3",
-        "description": "Role-play scenarios"
+        "description": "Handle client feedback",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 6,
-    "title": "Territory Management",
-    "description": "Managing assigned territory effectively",
+    "id": 6,
+    "title": "Advanced Techniques",
+    "description": "Master advanced field techniques",
     "subTasks": [
       {
         "taskId": "6-1",
-        "description": "Territory mapping and planning"
+        "description": "Learn advanced methods",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "6-2",
-        "description": "Customer database management"
-      },
-      {
-        "taskId": "6-3",
-        "description": "Route optimization"
+        "description": "Practice troubleshooting",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 7,
-    "title": "Client Relations",
-    "description": "Building and maintaining client relationships",
+    "id": 7,
+    "title": "Team Leadership",
+    "description": "Develop leadership skills",
     "subTasks": [
       {
         "taskId": "7-1",
-        "description": "Client communication best practices"
+        "description": "Lead team meeting",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "7-2",
-        "description": "Follow-up procedures"
-      },
-      {
-        "taskId": "7-3",
-        "description": "Customer retention strategies"
+        "description": "Mentor new trainee",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 8,
-    "title": "Leadership Development",
-    "description": "Developing leadership and mentoring skills",
+    "id": 8,
+    "title": "Quality Assurance",
+    "description": "Ensure quality standards",
     "subTasks": [
       {
         "taskId": "8-1",
-        "description": "Leadership fundamentals course"
+        "description": "Complete QA checklist",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "8-2",
-        "description": "Team building exercises"
-      },
-      {
-        "taskId": "8-3",
-        "description": "Mentoring new recruits"
+        "description": "Review quality metrics",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 9,
-    "title": "Performance Metrics",
-    "description": "Understanding and achieving performance goals",
+    "id": 9,
+    "title": "Performance Review",
+    "description": "Mid-program evaluation",
     "subTasks": [
       {
         "taskId": "9-1",
-        "description": "Learn KPI tracking"
+        "description": "Complete self-assessment",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "9-2",
-        "description": "Set personal goals"
-      },
-      {
-        "taskId": "9-3",
-        "description": "Monthly performance review"
+        "description": "Meet with supervisor",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 10,
-    "title": "Advanced Territory",
-    "description": "Managing larger territories and teams",
+    "id": 10,
+    "title": "Training Others",
+    "description": "Begin training responsibilities",
     "subTasks": [
       {
         "taskId": "10-1",
-        "description": "Multi-territory management"
+        "description": "Train 2 new recruits",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "10-2",
-        "description": "Team coordination"
-      },
-      {
-        "taskId": "10-3",
-        "description": "Regional strategy development"
+        "description": "Create training materials",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 11,
-    "title": "Training Others",
-    "description": "Teaching and mentoring new representatives",
+    "id": 11,
+    "title": "Project Management",
+    "description": "Lead project initiatives",
     "subTasks": [
       {
         "taskId": "11-1",
-        "description": "Train-the-trainer certification"
+        "description": "Manage team project",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "11-2",
-        "description": "Onboard new recruit"
-      },
-      {
-        "taskId": "11-3",
-        "description": "Mentoring assessment"
+        "description": "Present project results",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 12,
-    "title": "Independent Operations",
-    "description": "Operating independently with minimal supervision",
+    "id": 12,
+    "title": "Final Assessment",
+    "description": "Comprehensive evaluation",
     "subTasks": [
       {
         "taskId": "12-1",
-        "description": "Independent territory management"
+        "description": "Complete final exam",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "12-2",
-        "description": "Self-directed goal achievement"
-      },
-      {
-        "taskId": "12-3",
-        "description": "Peer leadership demonstration"
+        "description": "Practical demonstration",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   },
   {
-    "stepId": 13,
-    "title": "Field Trainer Certification",
-    "description": "Final certification as independent field trainer",
+    "id": 13,
+    "title": "Certification",
+    "description": "Achieve Independent Field Trainer status",
     "subTasks": [
       {
         "taskId": "13-1",
-        "description": "Final assessment examination"
+        "description": "Receive certification",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       },
       {
         "taskId": "13-2",
-        "description": "Management approval"
-      },
-      {
-        "taskId": "13-3",
-        "description": "Field trainer certification"
+        "description": "Complete transition plan",
+        "completed": false,
+        "completedAt": null,
+        "completedBy": null
       }
     ]
   }
