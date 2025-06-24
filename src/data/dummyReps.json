@@ -1,0 +1,196 @@
+
+[
+  {
+    "id": "rep-001",
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "phone": "(555) 123-4567",
+    "fieldTrainerId": "trainer-001",
+    "stage": 7,
+    "promotionDate": "2024-01-15T10:00:00Z",
+    "createdAt": "2024-01-15T10:00:00Z",
+    "milestones": [
+      {
+        "stepId": 1,
+        "title": "IBA DAY",
+        "completed": true,
+        "completedAt": "2024-01-15T10:00:00Z",
+        "subTasks": [
+          {
+            "taskId": "task-001",
+            "description": "Complete HR Paperwork",
+            "completed": true,
+            "completedAt": "2024-01-15T10:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-002", 
+            "description": "Review Employee Handbook",
+            "completed": true,
+            "completedAt": "2024-01-15T11:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-003",
+            "description": "Setup Workstation & Accounts",
+            "completed": true,
+            "completedAt": "2024-01-15T12:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-004",
+            "description": "Receive Welcome Swag Bag",
+            "completed": true,
+            "completedAt": "2024-01-15T13:00:00Z",
+            "completedBy": "trainer-001"
+          }
+        ]
+      },
+      {
+        "stepId": 2,
+        "title": "A PHONE FOLLOW-UP",
+        "completed": true,
+        "completedAt": "2024-01-16T10:00:00Z",
+        "subTasks": [
+          {
+            "taskId": "task-005",
+            "description": "Attend Product Overview Session",
+            "completed": true,
+            "completedAt": "2024-01-16T10:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-006",
+            "description": "Complete Product Certification Course",
+            "completed": true,
+            "completedAt": "2024-01-16T14:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-007",
+            "description": "Shadow Senior Rep Calls",
+            "completed": true,
+            "completedAt": "2024-01-17T10:00:00Z",
+            "completedBy": "trainer-001"
+          }
+        ]
+      },
+      {
+        "stepId": 3,
+        "title": "B ZOOM FOLLOW-UP",
+        "completed": false,
+        "subTasks": [
+          {
+            "taskId": "task-008",
+            "description": "CRM System Training",
+            "completed": false
+          },
+          {
+            "taskId": "task-009",
+            "description": "Role-Play Sales Scenarios",
+            "completed": false
+          },
+          {
+            "taskId": "task-010",
+            "description": "Understand Lead Qualification Process",
+            "completed": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rep-002",
+    "name": "Bob Williams",
+    "email": "bob.williams@example.com",
+    "phone": "(555) 987-6543",
+    "fieldTrainerId": "trainer-001",
+    "stage": 3,
+    "promotionDate": "2024-02-01T10:00:00Z",
+    "createdAt": "2024-02-01T10:00:00Z",
+    "milestones": [
+      {
+        "stepId": 1,
+        "title": "IBA DAY",
+        "completed": true,
+        "completedAt": "2024-02-01T10:00:00Z",
+        "subTasks": [
+          {
+            "taskId": "task-011",
+            "description": "Complete HR Paperwork",
+            "completed": true,
+            "completedAt": "2024-02-01T10:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-012",
+            "description": "Review Employee Handbook", 
+            "completed": true,
+            "completedAt": "2024-02-01T11:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-013",
+            "description": "Setup Workstation & Accounts",
+            "completed": true,
+            "completedAt": "2024-02-01T12:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-014",
+            "description": "Receive Welcome Swag Bag",
+            "completed": true,
+            "completedAt": "2024-02-01T13:00:00Z",
+            "completedBy": "trainer-001"
+          }
+        ]
+      },
+      {
+        "stepId": 2,
+        "title": "A PHONE FOLLOW-UP",
+        "completed": false,
+        "subTasks": [
+          {
+            "taskId": "task-015",
+            "description": "Attend Product Overview Session",
+            "completed": true,
+            "completedAt": "2024-02-02T10:00:00Z",
+            "completedBy": "trainer-001"
+          },
+          {
+            "taskId": "task-016",
+            "description": "Complete Product Certification Course",
+            "completed": false
+          },
+          {
+            "taskId": "task-017",
+            "description": "Shadow Senior Rep Calls",
+            "completed": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rep-003",
+    "name": "Charlie Davis",
+    "email": "charlie.davis@example.com",
+    "phone": "(555) 456-7890",
+    "fieldTrainerId": "trainer-002",
+    "stage": 11,
+    "promotionDate": "2023-12-01T10:00:00Z",
+    "createdAt": "2023-12-01T10:00:00Z",
+    "milestones": []
+  },
+  {
+    "id": "rep-004",
+    "name": "Diana Miller",
+    "email": "diana.miller@example.com",
+    "phone": "(555) 321-0987",
+    "fieldTrainerId": "trainer-002",
+    "stage": 1,
+    "promotionDate": "2024-06-20T10:00:00Z",
+    "createdAt": "2024-06-20T10:00:00Z",
+    "milestones": []
+  }
+]

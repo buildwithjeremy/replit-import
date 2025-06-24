@@ -1,0 +1,134 @@
+
+[
+  {
+    "stepId": 1,
+    "title": "IBA DAY",
+    "description": "Initial onboarding and setup",
+    "subTasks": [
+      "Complete HR Paperwork",
+      "Review Employee Handbook",
+      "Setup Workstation & Accounts",
+      "Receive Welcome Swag Bag"
+    ]
+  },
+  {
+    "stepId": 2,
+    "title": "A PHONE FOLLOW-UP",
+    "description": "Product training and initial shadowing",
+    "subTasks": [
+      "Attend Product Overview Session",
+      "Complete Product Certification Course",
+      "Shadow Senior Rep Calls"
+    ]
+  },
+  {
+    "stepId": 3,
+    "title": "B ZOOM FOLLOW-UP",
+    "description": "Systems training and role-play",
+    "subTasks": [
+      "CRM System Training",
+      "Role-Play Sales Scenarios",
+      "Understand Lead Qualification Process"
+    ]
+  },
+  {
+    "stepId": 4,
+    "title": "C ZOOM FOLLOW-UP",
+    "description": "Advanced sales techniques",
+    "subTasks": [
+      "Learn Objection Handling",
+      "Master Closing Techniques",
+      "Practice Presentation Skills"
+    ]
+  },
+  {
+    "stepId": 5,
+    "title": "ATTEND",
+    "description": "Attend company events and meetings",
+    "subTasks": [
+      "Attend Weekly Team Meeting",
+      "Participate in Company All-Hands",
+      "Join Product Update Session"
+    ]
+  },
+  {
+    "stepId": 6,
+    "title": "MARKET APPTS",
+    "description": "Schedule and attend market appointments",
+    "subTasks": [
+      "Schedule First Market Appointment",
+      "Complete Market Research",
+      "Attend Market Appointment with Trainer"
+    ]
+  },
+  {
+    "stepId": 7,
+    "title": "CLOSED",
+    "description": "First successful sale closure",
+    "subTasks": [
+      "Identify Qualified Prospect",
+      "Conduct Sales Presentation",
+      "Close First Sale"
+    ]
+  },
+  {
+    "stepId": 8,
+    "title": "BECOMING NEW PRESENTER",
+    "description": "Develop presentation skills",
+    "subTasks": [
+      "Prepare Presentation Materials",
+      "Practice Presentation Delivery",
+      "Get Feedback from Senior Rep"
+    ]
+  },
+  {
+    "stepId": 9,
+    "title": "ATTEND",
+    "description": "Regular attendance requirements",
+    "subTasks": [
+      "Maintain Perfect Attendance",
+      "Participate in Training Sessions",
+      "Attend Mandatory Meetings"
+    ]
+  },
+  {
+    "stepId": 10,
+    "title": "PROMOTION",
+    "description": "Qualify for promotion to senior level",
+    "subTasks": [
+      "Meet Sales Targets",
+      "Complete Performance Review",
+      "Get Manager Approval"
+    ]
+  },
+  {
+    "stepId": 11,
+    "title": "ATTEND",
+    "description": "Senior level responsibilities",
+    "subTasks": [
+      "Mentor New Reps",
+      "Lead Team Meetings",
+      "Maintain Senior Performance"
+    ]
+  },
+  {
+    "stepId": 12,
+    "title": "LIFE LICENSED",
+    "description": "Obtain life insurance license",
+    "subTasks": [
+      "Complete Pre-Licensing Course",
+      "Pass State Licensing Exam",
+      "Submit License Application"
+    ]
+  },
+  {
+    "stepId": 13,
+    "title": "CLOSED 3 CLIENT EXPERIENCES",
+    "description": "Complete advanced client work",
+    "subTasks": [
+      "Close First Client Experience",
+      "Close Second Client Experience", 
+      "Close Third Client Experience"
+    ]
+  }
+]
