@@ -1,199 +1,175 @@
+
 import { useAppState } from '@/hooks/use-app-state';
 import { useLocation } from 'wouter';
-import { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { User, Plus, Users, TrendingUp, Award, ChevronRight } from 'lucide-react';
 import TopNav from '@/components/navigation/top-nav';
 import BottomNav from '@/components/navigation/bottom-nav';
-import RepCard from '@/components/dashboard/rep-card';
 import StatsCard from '@/components/dashboard/stats-card';
 import FunnelChart from '@/components/dashboard/funnel-chart';
-import AddRepModal from '@/components/modals/add-rep-modal';
-import { Button } from '@/components/ui/button';
-import { Plus } from 'lucide-react';
+import RepCard from '@/components/dashboard/rep-card';
 
 export default function AdminDashboard() {
   const [, navigate] = useLocation();
-  const { state, dispatch } = useAppState();
-  const [isAddRepModalOpen, setIsAddRepModalOpen] = useState(false);
-  const [stageFilter, setStageFilter] = useState<string>('all');
+  const { state } = useAppState();
 
-  // Redirect if not authenticated or not an admin
-  if (!state.isAuthenticated) {
+  if (!state.isAuthenticated || state.userRole !== 'admin') {
     navigate('/');
     return null;
   }
 
-  if (state.userRole !== 'admin') {
-    navigate('/role-selector');
-    return null;
-  }
-
-  // Calculate analytics
+  // Calculate stats across all trainers and reps
   const totalReps = state.reps.length;
-  const graduatedReps = state.reps.filter(rep => rep.stage >= 13).length;
-  const activeTrainers = state.trainers.filter(trainer => 
-    trainer.assignedRepIds.length > 0
-  ).length;
-  const averageProgress = totalReps > 0 
-    ? Math.round(state.reps.reduce((sum, rep) => sum + (rep.stage / 13) * 100, 0) / totalReps)
+  const activeTrainers = state.trainers.length;
+  
+  // Handle assignedRepIds safely with type checking
+  const avgRepsPerTrainer = state.trainers.length > 0 
+    ? Math.round(state.trainers.reduce((sum, trainer) => {
+        const repIds = Array.isArray(trainer.assignedRepIds) ? trainer.assignedRepIds : [];
+        return sum + repIds.length;
+      }, 0) / state.trainers.length)
     : 0;
 
-  // Filter reps based on stage
-  const getFilteredReps = () => {
-    switch (stageFilter) {
-      case '1-3':
-        return state.reps.filter(rep => rep.stage >= 1 && rep.stage <= 3);
-      case '4-7':
-        return state.reps.filter(rep => rep.stage >= 4 && rep.stage <= 7);
-      case '8-13':
-        return state.reps.filter(rep => rep.stage >= 8 && rep.stage <= 13);
-      default:
-        return state.reps;
-    }
-  };
+  const completionRate = totalReps > 0 
+    ? Math.round((state.reps.filter(rep => rep.stage >= 13).length / totalReps) * 100)
+    : 0;
 
-  const filteredReps = getFilteredReps();
+  // Get recent reps (last 5 updated)
+  const recentReps = [...state.reps]
+    .sort((a, b) => {
+      const dateA = a.updatedAt || new Date(0);
+      const dateB = b.updatedAt || new Date(0);
+      return dateB.getTime() - dateA.getTime();
+    })
+    .slice(0, 5);
 
-  const handleRepClick = (repId: string) => {
-    const rep = state.reps.find(r => r.id === repId);
-    if (rep) {
-      dispatch({ type: 'SELECT_REP', payload: rep });
-      navigate(`/rep/${repId}`);
-    }
-  };
-
-  // Get trainer name for rep
+  // Get trainer name for a rep
   const getTrainerName = (repId: string) => {
-    const rep = state.reps.find(r => r.id === repId);
-    if (!rep) return 'Unknown';
-    const trainer = state.trainers.find(t => t.assignedRepIds.includes(repId));
+    const trainer = state.trainers.find(t => {
+      const repIds = Array.isArray(t.assignedRepIds) ? t.assignedRepIds : [];
+      return repIds.includes(repId);
+    });
     return trainer?.name || 'Unassigned';
   };
+
+  // Calculate funnel data
+  const funnelData = [
+    { stage: 'Onboarding', count: state.reps.filter(r => r.stage <= 3).length },
+    { stage: 'Field Training', count: state.reps.filter(r => r.stage > 3 && r.stage <= 7).length },
+    { stage: 'Advanced', count: state.reps.filter(r => r.stage > 7 && r.stage <= 10).length },
+    { stage: 'Independence', count: state.reps.filter(r => r.stage > 10 && r.stage <= 13).length },
+    { stage: 'Graduated', count: state.reps.filter(r => r.stage > 13).length },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       <TopNav />
       
-      {/* Admin Header */}
-      <div className="bg-white shadow-sm p-4 border-b border-gray-200">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-heading font-semibold text-gray-900">
-              Admin Dashboard
-            </h1>
-            <p className="text-sm text-gray-600">All Teams Overview</p>
-          </div>
-          <Button
-            onClick={() => setIsAddRepModalOpen(true)}
-            className="bg-secondary-500 hover:bg-secondary-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-colors duration-200 p-0"
-          >
-            <Plus size={20} />
-          </Button>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-20 sm:pb-6">
+        <div className="mb-8">
+          <h1 className="text-3xl font-heading font-bold text-gray-900 mb-2">
+            Admin Dashboard
+          </h1>
+          <p className="text-gray-600 font-body">
+            Overview of all field trainers and representatives
+          </p>
         </div>
-      </div>
 
-      {/* Analytics Cards */}
-      <div className="p-4 space-y-4">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {/* Stats Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <StatsCard
-            value={totalReps}
-            label="Total Reps"
-            variant="primary"
+            title="Total Reps"
+            value={totalReps.toString()}
+            icon={Users}
+            trend="+12%"
           />
           <StatsCard
-            value={graduatedReps}
-            label="Graduated"
-            variant="secondary"
+            title="Active Trainers"
+            value={activeTrainers.toString()}
+            icon={User}
+            trend="+3%"
           />
           <StatsCard
-            value={activeTrainers}
-            label="Trainers"
-            variant="accent"
+            title="Avg Reps/Trainer"
+            value={avgRepsPerTrainer.toString()}
+            icon={TrendingUp}
+            trend="+8%"
           />
           <StatsCard
-            value={`${averageProgress}%`}
-            label="Avg. Progress"
-            variant="neutral"
+            title="Completion Rate"
+            value={`${completionRate}%`}
+            icon={Award}
+            trend="+15%"
           />
         </div>
 
-        {/* Funnel Chart */}
-        <FunnelChart reps={state.reps} />
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          {/* Funnel Chart */}
+          <Card className="bg-white rounded-xl shadow-sm">
+            <CardHeader>
+              <CardTitle className="font-heading">Training Pipeline</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <FunnelChart data={funnelData} />
+            </CardContent>
+          </Card>
 
-        {/* Filter Controls */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
-          <div className="flex flex-wrap gap-2">
-            <Button
-              onClick={() => setStageFilter('all')}
-              variant={stageFilter === 'all' ? 'default' : 'outline'}
-              size="sm"
-              className={stageFilter === 'all' ? 'bg-primary-500 text-white' : ''}
-            >
-              All Stages
-            </Button>
-            <Button
-              onClick={() => setStageFilter('1-3')}
-              variant={stageFilter === '1-3' ? 'default' : 'outline'}
-              size="sm"
-              className={stageFilter === '1-3' ? 'bg-primary-500 text-white' : ''}
-            >
-              Onboarding
-            </Button>
-            <Button
-              onClick={() => setStageFilter('4-7')}
-              variant={stageFilter === '4-7' ? 'default' : 'outline'}
-              size="sm"
-              className={stageFilter === '4-7' ? 'bg-primary-500 text-white' : ''}
-            >
-              Field Training
-            </Button>
-            <Button
-              onClick={() => setStageFilter('8-13')}
-              variant={stageFilter === '8-13' ? 'default' : 'outline'}
-              size="sm"
-              className={stageFilter === '8-13' ? 'bg-primary-500 text-white' : ''}
-            >
-              Independence
-            </Button>
-          </div>
+          {/* Quick Actions */}
+          <Card className="bg-white rounded-xl shadow-sm">
+            <CardHeader>
+              <CardTitle className="font-heading">Quick Actions</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <Button
+                onClick={() => navigate('/add-rep')}
+                className="w-full justify-start bg-primary-500 hover:bg-primary-600"
+              >
+                <Plus className="mr-2" size={16} />
+                Add New Representative
+              </Button>
+              <Button
+                onClick={() => navigate('/reps')}
+                variant="outline"
+                className="w-full justify-start"
+              >
+                <Users className="mr-2" size={16} />
+                View All Representatives
+              </Button>
+              <Button
+                onClick={() => navigate('/activity')}
+                variant="outline"
+                className="w-full justify-start"
+              >
+                <ChevronRight className="mr-2" size={16} />
+                View Activity Log
+              </Button>
+            </CardContent>
+          </Card>
         </div>
-      </div>
 
-      {/* All Reps List */}
-      <div className="px-4 pb-20 space-y-4">
-        <h2 className="font-heading font-semibold text-gray-900 text-lg">
-          All Representatives
-        </h2>
-        
-        {filteredReps.length === 0 ? (
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
-            <p className="text-gray-500 mb-4">No representatives found</p>
-            <Button
-              onClick={() => setIsAddRepModalOpen(true)}
-              className="bg-primary-500 hover:bg-primary-600 text-white"
-            >
-              Add First Representative
-            </Button>
-          </div>
-        ) : (
-          filteredReps.map(rep => (
-            <RepCard
-              key={rep.id}
-              rep={rep}
-              trainerName={getTrainerName(rep.id)}
-              onClick={() => handleRepClick(rep.id)}
-              showTrainer={true}
-            />
-          ))
-        )}
+        {/* Recent Reps */}
+        <Card className="bg-white rounded-xl shadow-sm">
+          <CardHeader>
+            <CardTitle className="font-heading">Recent Activity</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {recentReps.map((rep) => (
+                <RepCard
+                  key={rep.id}
+                  rep={rep}
+                  trainerName={getTrainerName(rep.id)}
+                  showTrainer={true}
+                  onClick={() => navigate(`/rep/${rep.id}`)}
+                />
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       <BottomNav activeTab="dashboard" />
-      
-      <AddRepModal
-        isOpen={isAddRepModalOpen}
-        onClose={() => setIsAddRepModalOpen(false)}
-        userRole="admin"
-      />
     </div>
   );
 }
